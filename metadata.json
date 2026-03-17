@@ -1,0 +1,5 @@
+{
+  "name": "WinRetro OS",
+  "description": "A nostalgic retro Windows-style operating system simulator with functional apps, games, and a CRT screen effect.",
+  "requestFramePermissions": []
+}
