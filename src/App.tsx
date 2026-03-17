@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
@@ -27,6 +22,7 @@ import {
   Volume2,
   AlertTriangle
 } from 'lucide-react';
+import { Analytics } from "@vercel/analytics/react"
 
 // --- Types ---
 
@@ -88,7 +84,7 @@ const Taskbar = ({
 
   return (
     <div className="fixed bottom-0 left-0 right-0 h-10 win-outset bg-[#c0c0c0] z-[1000] select-none flex flex-row items-center px-1">
-      
+      <Analytics />
       {/* 1. Start 按鈕 - 使用 flex-none 固定寬度 */}
       <div className="flex-none">
         <button 
@@ -343,7 +339,7 @@ const Window = ({
         x: window.isMaximized ? 0 : window.x,
         y: window.isMaximized ? 0 : window.y,
         width: window.isMaximized ? '100%' : `${window.width}px`,
-        height: window.isMaximized ? (window.id === 'taskbar' ? '40px' : `${window.height}px`) : `${window.height}px`,
+        height: window.isMaximized ? `${window.height}px` : `${window.height}px`,
       }}
       // 確保最大化時高度扣除工作列高度 (假設工作列 40px)
       transition={{ type: 'spring', damping: 25, stiffness: 300, mass: 0.5 }}
